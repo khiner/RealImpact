@@ -31,3 +31,10 @@ See the [`explore_dataset` notebook](/explore_dataset.ipynb) for load/view/analy
 
 [Here](https://arxiv.org/pdf/2306.09944.pdf) is an arXiv link to the RealImpact paper.
 A copy of it is committed to this fork.
+
+## Mesh repairs
+
+Four of the mirrored surface meshes deviate from upstream. The scans of `37_PiePan`, `51_ShellPlate`, `73_PlasticBin`, and `83_WoodVase` contain small clusters of self-intersecting triangles, which makes them invalid input for tetrahedralization. Each was repaired as follows:
+
+- `37_PiePan` and `51_ShellPlate` each had a single sub-millimeter cluster of crossing triangles. The offending faces and their one-ring neighborhood were deleted and the holes closed with MeshLab, preserving each enclosed volume to within one part in 100,000.
+- `73_PlasticBin` and `83_WoodVase` had crossings spread across many sites, so their surfaces were rebuilt entirely with [fTetWild](https://github.com/wildmeshing/fTetWild), which tolerates self-intersecting input. The rebuilt surfaces stay within 0.1% of the bounding-box diagonal of the originals.
