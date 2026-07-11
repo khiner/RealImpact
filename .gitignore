@@ -1,4 +1,12 @@
-dataset/
+# Hydrated dataset files stay local, except the preprocessed surface meshes (mirrored in git-lfs).
+dataset/*
+!dataset/download.sh
+!dataset/object_names.txt
+!dataset/*/
+dataset/*/*
+!dataset/*/preprocessed/
+dataset/*/preprocessed/*
+!dataset/*/preprocessed/transformed.obj
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

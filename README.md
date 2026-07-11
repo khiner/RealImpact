@@ -11,6 +11,11 @@ We are currently working on packaging and releasing the remainder of our code as
 
 _The rest of this Readme is added by Karl Hiner._
 
+This repository is a standalone mirror of [samuel-clarke/RealImpact](https://github.com/samuel-clarke/RealImpact) (standalone because GitHub forks cannot host git-lfs objects).
+It mirrors each object's preprocessed surface mesh (`dataset/<id>_<name>/preprocessed/transformed.obj`) in git-lfs.
+The meshes serve as a corpus for [MeshEditor](https://github.com/khiner/MeshEditor) modal audio tests and as a backup of the upstream-hosted files.
+All other dataset files stay local. Hydrate them with `dataset/download.sh` as described above.
+
 See the [`explore_dataset` notebook](/explore_dataset.ipynb) for load/view/analysis examples for this dataset's object files:
 
 - `angle.npy`
