@@ -1,4 +1,5 @@
-# Hydrated dataset files stay local, except the preprocessed surface meshes (mirrored in git-lfs).
+# Everything but the impact recordings is mirrored. Those are 2.8 GB per object, past what git-lfs
+# takes for one file, so `dataset/download.sh` hydrates them.
 dataset/*
 !dataset/download.sh
 !dataset/object_names.txt
@@ -7,6 +8,9 @@ dataset/*/*
 !dataset/*/preprocessed/
 dataset/*/preprocessed/*
 !dataset/*/preprocessed/transformed.obj
+!dataset/*/preprocessed/material_0.*
+!dataset/*/preprocessed/*.npy
+dataset/*/preprocessed/deconvolved_0db.npy
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
